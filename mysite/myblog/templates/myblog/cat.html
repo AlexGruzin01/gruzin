@@ -1,0 +1,12 @@
+<nav class="header__menu">
+    <ul class="header__list">
+    <li><a class="header__link" href="{% url 'index' %}">Главная</a></li>
+        {% for cat in category %}
+            <li><a href="{{ cat.get_absolute_url }}" class="header__link">{{ cat }}</a></li>
+        {% endfor %}
+    <li><a class="header__link" href="#">Статьи</a></li>
+    <li><a class="header__link" href="#">Галерея</a></li>
+    <li><a class="header__link" href="#">О нас</a></li>
+    <li><a class="header__link" href="{% url 'contacts' %}">Контакты</a></li>
+    </ul>
+</nav>

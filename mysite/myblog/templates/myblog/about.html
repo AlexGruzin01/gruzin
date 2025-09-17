@@ -1,0 +1,339 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main class="main main-pages">
+        <div class="main-pages-image main-pages-image-ibg">
+            <picture>
+                <source srcset="{% static 'myblog/images/about/bg-mobile.jpg' %}" media="(max-width: 768px)">
+                <img src="{% static 'myblog/images/about/bg-about.jpg' %}" alt="Изображение компании">
+            </picture>
+
+            <div class="container container-pages">
+                <div class="main-pages__content">
+                    <h1 class="main-pages__title">О компании</h1>
+                    <p class="main-pages__subtitle">Мы предлагаем широкий спектр решений, включая технологии для
+                        переработки молока, упаковки и хранения продукции</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="breadcrambs">
+        <div class="container">
+            <div class="breadcrambs-list">
+                <ul class="breadcrambs-items">
+                    <li class="breadcrambs-link"><a href="#">Главная </a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                    <li class="breadcrambs-link"><a href="#">О нас</a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="about-us">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">О нас</h2>
+            </div>
+            <div class="about-us-content">
+                <p class="about-us-content__desc">Мы предлагаем комплексные технологические решения для переработки
+                    молока и молочной сыворотки,
+                    начиная от приемки сырья и заканчивая выпуском готового продукта для производства:
+                </p>
+                <div class="about-us-content-body">
+                    <div class="about-us-content-body__column">
+                        <div class="about-us-content-body__item">
+                            <div class="about-us-content-body__img">
+                                <img src="{% static 'myblog/images/about/milk.png' %}" alt="">
+                            </div>
+                            <h3 class="about-us-content-body__title">Молока</h3>
+                        </div>
+                    </div>
+                    <div class="about-us-content-body__column">
+                        <div class="about-us-content-body__item">
+                            <div class="about-us-content-body__img">
+                                <img src="{% static 'myblog/images/about/cheese.png' %}" alt="">
+                            </div>
+                            <h3 class="about-us-content-body__title">Сыра</h3>
+                        </div>
+                    </div>
+                    <div class="about-us-content-body__column">
+                        <div class="about-us-content-body__item">
+                            <div class="about-us-content-body__img">
+                                <img src="{% static 'myblog/images/about/curd.png' %}" alt="">
+                            </div>
+                            <h3 class="about-us-content-body__title">Молочных продуктов</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="our-work">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">Принципы нашей работы</h2>
+            </div>
+            <div class="our-work-body">
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">01</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/01.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Индивидуальный подход к каждому проекту</h2>
+                            <p class="our-work-body__desc">Исполнение самых смелых проектов исходя из индивидуальных
+                                потребностей клиента
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">02</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/02.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Лучшее оборудование</h2>
+                            <p class="our-work-body__desc">Для производства используем европейское оборудование с
+                                отработанными технологиями
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">03</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/03.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Весь технологический комплекс переработки под ключ</h2>
+                            <p class="our-work-body__desc">Осуществляем проектирование, монтаж, настройку и
+                                обслуживание оборудование</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">04</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/04.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Высококвалифицированный персонал
+                            </h2>
+                            <p class="our-work-body__desc">Команда экспертов с глубокими знаниями и многолетним
+                                опытом в отрасли</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">05</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/05.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Более 30 лет на рынке</h2>
+                            <p class="our-work-body__desc">За эти годы мы накопили обширные знания в области
+                                поставок, что делает нас лидерами в своей отрасли</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="our-work-body__column">
+                    <div class="our-work-body__item">
+                        <span class="our-work-body__decor-number">06</span>
+                        <div class="our-work-body__img">
+                            <img src="{% static 'myblog/images/about/06.png' %}" alt="">
+                        </div>
+                        <div class="our-work-body__content">
+                            <h2 class="our-work-body__title">Рынок поставок</h2>
+                            <p class="our-work-body__desc">Наша компания активно работает на международном рынке: в
+                                ЕС, СНГ и Монголии</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slogan">
+        <div class="container">
+            <h3 class="slogan-name">Альфа<span>Милк</span></h3>
+            <div class="slogan-video">
+                <video controls>
+                    <source src="{% static 'myblog/images/videos/01.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+    <section class="complex">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">Комплекс услуг</h2>
+            </div>
+            <div class="complex-body">
+                <div class="complex-body__left accordion">
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button"><span>Проектирование</span>
+                            <svg width="17"
+                                 height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button _active"><span>Поставка оборудования<br> и
+                                    его установка
+                                </span>
+                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button"><span>Монтажные работы</span>
+                            <svg
+                                    width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button"><span>Ведение проекта
+                                </span>
+                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button"><span>Инженерное сопровождение проектов
+                                </span>
+                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                    <div class="complex-body__column ">
+                        <h2 class="complex-body__title accordion-button"><span>Гарантийное и постгарантийное
+                                    обслуживание</span>
+                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91602 3.16699L14.5827 14.8337" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5827 3.16699V14.8337H2.91602" stroke="white" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                        </h2>
+                        <div class="complex-body__drop accordion-body">
+                            <p class="complex-body__subtitle accordion-body-content">Одним из основных направлений
+                                работы нашего
+                                предприятия является монтаж и ввод в эксплуатацию технологического оборудования
+                                для пищевой промышленности.</p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="complex-body__right">
+                    <div class="complex-body__right-ibg">
+                        <img src="{% static 'myblog/images/about/complex-bg.jpg' %}" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {% include 'myblog/inc/partners.html' %}
+    {% include 'myblog/inc/intresting.html' %}
+    {% include 'myblog/inc/rev.html' %}
+{% endblock %}

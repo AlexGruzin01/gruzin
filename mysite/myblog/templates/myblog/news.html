@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main class="main main-pages">
+        <div class="main-pages-image main-pages-image-ibg">
+            <img src="{% static 'myblog/images/news/bg-news.jpg' %}" alt="Изображение">
+            <div class="container container-pages">
+                <div class="main-pages__content">
+                    <h1 class="main-pages__title">{{ title }}</h1>
+                    <p class="main-pages__subtitle">Актуальные события и обновления нашей компании. Мы делимся
+                        новыми продуктами, статьями о выставках и мероприятиях, в которых участвуем.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="breadcrambs">
+        <div class="container">
+            <div class="breadcrambs-list">
+                <ul class="breadcrambs-items">
+                    <li class="breadcrambs-link"><a href="{% url 'index' %}">Главная </a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                    <li class="breadcrambs-link"><a href="{% url 'news' %}">Новости</a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="block-news">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title">Новости</h2>
+            </div>
+            <div class="block-news-body news-body">
+
+
+                {% for new in news %}
+                    <div class="block-news-item news-item _anim-items _anim-no-hide">
+                        <div class="block-news-data news-data"><span>{{ new.created|date:"d.m.Y"}}</span></div>
+                        <div class="block-news-content news-content">
+                            <h3 class="block-news-title news-title">{{ new }}</h3>
+                            </p>
+                            <a href="{{ new.get_absolute_url }}"
+                               class="block-news-btn news-btn"><span>Читать больше</span>
+                                <svg width="14"
+                                     height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_128_248)">
+                                        <path d="M1.16602 1.1665L12.8327 12.8332" stroke="#E92935" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.8327 1.1665V12.8332H1.16602" stroke="#E92935" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_128_248">
+                                            <rect width="14" height="14" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="block-news-img news-img news-img-ibg">
+                            {% if new.image %}
+                                <img src="{{ new.image.url }}" alt="">
+                            {% else %}
+                                No Photo
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {#            <div class="block-news-pagination">#}
+            {#                <a class="block-news-pagination__prev block-news-pagination__arr" href="#">#}
+            {#                    <svg width="14" height="14" viewBox="0 0 14 14"#}
+            {#                         fill="none" xmlns="http://www.w3.org/2000/svg">#}
+            {#                        <path d="M7 13L1 7L7 1" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"#}
+            {#                              stroke-linejoin="round"/>#}
+            {#                        <path d="M13 7L1 7" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"#}
+            {#                              stroke-linejoin="round"/>#}
+            {#                    </svg>#}
+            {#                </a>#}
+            <div class="block-news-pagination">
+                <div class="block-news-pagination__numbers">
+                    {% if page_obj.has_other_pages %}
+                        <ul class="block-news-pagination__numbers">
+
+                            {% if page_obj.has_previous %}
+                                {#                            <li><a href="?page=1">&laquo; first</a></li>#}
+                                {#                            <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>#}
+                                <li class=""><a class="block-news-pagination__prev block-news-pagination__arr"
+                                                href="?page={{ page_obj.previous_page_number }}">
+                                    <svg width="14" height="14" viewBox="0 0 14 14"
+                                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 13L1 7L7 1" stroke="#5E5E5E" stroke-width="1.5"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M13 7L1 7" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                </a></li>
+                                {% else %}
+                                <li class="block-news-pagination__prev block-news-pagination__arr">
+                                <svg width="14" height="14" viewBox="0 0 14 14"
+                                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 13L1 7L7 1" stroke="#5E5E5E" stroke-width="1.5"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M13 7L1 7" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                </li>
+                            {% endif %}
+
+                            {% for p in page_obj.paginator.page_range %}
+                                {% if page_obj.number == p %}
+                                    <li class="active"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+                                {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                                    <li><a href="?page={{ p }}">{{ p }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                {#                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>#}
+                                {#                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last&raquo;</a></li>#}
+                                <li class="block-news-pagination__numbers"><a
+                                        class="block-news-pagination__next block-news-pagination__arr"
+                                        href="?page={{ page_obj.next_page_number }}">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 1L13 7L7 13" stroke="#5E5E5E" stroke-width="1.5"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M1 7H13" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                </a></li>
+                                {% else %}
+                                <li class="block-news-pagination__prev block-news-pagination__arr">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 1L13 7L7 13" stroke="#5E5E5E" stroke-width="1.5"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M1 7H13" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                </li>
+                            {% endif %}
+
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                <!-- Кнопка "first" всегда видна, но неактивна на первой странице -->
+                    {% if page_obj.number == 1 %}
+                        <span class="disabled">&laquo; first</span>
+                    {% else %}
+                        <a href="?page=1">&laquo; first</a>
+                    {% endif %}
+
+                    <!-- Кнопка "previous" всегда видна, но неактивна на первой странице -->
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% else %}
+                        <span class="disabled">previous</span>
+                    {% endif %}
+
+                    <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+
+                    <!-- Кнопка "next" всегда видна, но неактивна на последней странице -->
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% else %}
+                        <span class="disabled">next</span>
+                    {% endif %}
+
+                    <!-- Кнопка "last" всегда видна, но неактивна на последней странице -->
+                    {% if page_obj.number == page_obj.paginator.num_pages %}
+                        <span class="disabled">last &raquo;</span>
+                    {% else %}
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            {#                <div class="block-news-pagination__numbers">#}
+            {#                    <ul>#}
+            {#                        <li class="_active"><a href="#">1</a></li>#}
+            {#                        <li><a href="#">2</a></li>#}
+            {#                        <li><a href="#">...</a></li>#}
+            {#                        <li><a href="#">9</a></li>#}
+            {#                    </ul>#}
+            {#                </div>#}
+            {#                <a class="block-news-pagination__next block-news-pagination__arr" href="#">#}
+            {#                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">#}
+            {#                        <path d="M7 1L13 7L7 13" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"#}
+            {#                              stroke-linejoin="round"/>#}
+            {#                        <path d="M1 7H13" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round"#}
+            {#                              stroke-linejoin="round"/>#}
+            {#                    </svg>#}
+            {##}
+            {#                </a>#}
+            {#            </div>#}
+        </div>
+    </div>
+    {% include 'myblog/inc/intresting.html' %}
+{% endblock %}
+

@@ -1,0 +1,276 @@
+{% load static %}
+{% load alfa_tags %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'myblog/css/bootstrap.css' %}">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'myblog/fontawesome-pro/css/all.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'myblog/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'myblog/css/style1.css' %}">
+
+    <script type="text/javascript" src="{% static 'myblog/js/jquery-1.12.0.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'myblog/js/bootstrap.js' %}"></script>#}
+    {#    <script type="text/javascript" src="{% static 'myblog/js/myscripts.js' %}"></script>#}
+</head>
+
+<body>
+<div class="wrapper">
+    {% block header %}
+        <header class="header">
+            <div class="container container-header">
+                <div class="header__wrapper">
+                    <div class="header__wrapper-left">
+                        <a class="header__logo" href="{% url 'index' %}">
+                            {% get_info as l %}
+                            {% for info in l %}
+                                {% if info.logo %}
+                                    <img src="{{ info.logo.url }}" alt="">
+                                {% else %}
+                                    No Photo
+                                {% endif %}
+
+                                </a>
+                                <nav class="header__menu">
+                                    <ul>
+                                        {% get_category as categories %}
+                                        {% for category in categories %}
+                                            <li><a href="{{ category.get_absolute_url }}">{{ category }}</a>
+                                                <ul>
+                                                    {% for post in category.posts.all %}
+                                                        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
+                                        <li><a href="{% url 'news' %}">Новости</a></li>
+                                        <li><a href="{% url 'about' %}">О нас</a></li>
+                                        <li><a href="{% url 'projects' %}">Проекты</a></li>
+                                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                                    </ul>
+                                </nav>
+                                </div>
+                                <div class="header__wrapper-right">
+                                    <div class="header__info">
+                                        <a href="tel+375173184858">{{ info.phone }}</a>
+                                        <span>ПН - ПТ с 09:00 до 17:00</span>
+                                    </div>
+                                    <div class="header__search-button">
+                                        <a class="btn-primary" href="#">
+                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                        d="M21 21.5L16.7 17.2M19 11.5C19 15.9183 15.4183 19.5 11 19.5C6.58172 19.5 3 15.9183 3 11.5C3 7.08172 6.58172 3.5 11 3.5C15.4183 3.5 19 7.08172 19 11.5Z"
+                                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"/>
+                                            </svg>
+                                            <span>Поиск</span>
+                                        </a>
+                                    </div>
+{#                                    <form method="get" action="{% url 'search' %}" class="header__wrapper-form">#}
+{#                                        <div class="input-group">#}
+{#                                            <input type="text" name="q" value="{{ request.GET.q }}"#}
+{#                                                   placeholder="Поиск по сайту..." class="form-control">#}
+{#                                            <div class="input-group-append">#}
+{#                                                <button type="submit" class="btn btn-primary">#}
+{#                                                    <i class="fas fa-search"></i>#}
+{#                                                </button>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </form>#}
+                                    <div class="header__burger-wrapper">
+                                        <div class="header__burger">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="header__wrapper-form" method="get" action="{% url 'search' %}">
+                                    <label for="inp-header">
+                                        <div class="inp-header-body">
+                                            <button type="submit">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_74_654)">
+                                                        <path
+                                                                d="M19 19L14.7 14.7M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z"
+                                                                stroke="#363636" stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_74_654">
+                                                            <rect width="20" height="20" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </button>
+                                            <input placeholder="Поиск" id="inp-header" type="text" name="q" value="{{ request.GET.q }}">
+                                        </div>
+                                        <span class="header-search-close">
+                                <svg width="15" height="15" viewBox="0 0 15 15"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_74_656)">
+                                        <path d="M1.36384 13.864L14.0918 1.13604M1.36384 1.13604L14.0918 13.864"
+                                              stroke="black" stroke-opacity="0.4" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_74_656">
+                                            <rect width="15" height="15" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                                    </label>
+{#                                    <div class="header__wrapper-result">#}
+{#                                        <h2 class="header__wrapper-result__title">Результаты</h2>#}
+{#                                        <div class="header__wrapper-result__body">#}
+{#                                            {% for new in news %}#}
+{#                                            <a href="{{ new.get_absolute_url }}" class="header__wrapper-result__item">#}
+{#                                                <div class="header__wrapper-result__img">#}
+{#                                                    <img src="./images/about/01.jpg" alt="">#}
+{#                                                </div>#}
+{#                                                <p class="header__wrapper-result__name">{{new}}</p>#}
+{#                                            </a>#}
+{#                                            {% endfor %}#}
+{#                                        </div>#}
+{#                                    </div>#}
+                                </form>
+                                </div>
+                                </div>
+                            {% endfor %}
+        </header>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="footer">
+            <h2 class="footer-title">АЛЬФАМИЛК</h2>
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-row__column">
+                        <h3 class="footer-row__title">Услуги</h3>
+                        <nav class="footer-row__menu">
+                            <ul>
+                                <li><a href="#">Конструирование оборудования</a></li>
+                                <li><a href="#">Сыродельные линии</a></li>
+                                <li><a href="#">Проектирование заводов</a></li>
+                                <li><a href="#">Монтажные линии</a></li>
+                                <li><a href="#">Сервисная поддержка</a></li>
+                                <li><a href="#">Постгрантийное обслуживание</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-row__column">
+                        <h3 class="footer-row__title">Оборудование</h3>
+                        <nav class="footer-row__menu">
+                            <ul>
+                                <li><a href="#">Сушильные комплексы</a></li>
+                                <li><a href="#">Сыродельные линии</a></li>
+                                <li><a href="#">CIP мойки</a></li>
+                                <li><a href="#">Производство масла </a></li>
+                                <li><a href="#">СТехнологии для молокозаводов</a></li>
+                                <li><a href="#">Кристаллизаторы</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-row__column">
+                        <h3 class="footer-row__title">О компании</h3>
+                        <nav class="footer-row__menu">
+                            <ul>
+                                <li><a href="#">О нас</a></li>
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Проекты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-row__column footer-row__column-contacts">
+                        <h3 class="footer-row__title">Контакты</h3>
+                        <div class="footer-row__contact">
+                            <div class="footer-row__item">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M14.6667 8.33317C14.6667 12.494 10.0509 16.8273 8.50087 18.1657C8.35648 18.2742 8.18071 18.333 8.00004 18.333C7.81938 18.333 7.6436 18.2742 7.49921 18.1657C5.94921 16.8273 1.33337 12.494 1.33337 8.33317C1.33337 6.56506 2.03575 4.86937 3.286 3.61913C4.53624 2.36888 6.23193 1.6665 8.00004 1.6665C9.76815 1.6665 11.4638 2.36888 12.7141 3.61913C13.9643 4.86937 14.6667 6.56506 14.6667 8.33317Z"
+                                            stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"/>
+                                    <path
+                                            d="M8.00004 10.8332C9.38075 10.8332 10.5 9.71388 10.5 8.33317C10.5 6.95246 9.38075 5.83317 8.00004 5.83317C6.61933 5.83317 5.50004 6.95246 5.50004 8.33317C5.50004 9.71388 6.61933 10.8332 8.00004 10.8332Z"
+                                            stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"/>
+                                </svg>
+                                <span>Республика Беларусь, 220124, г. Минск, ул. Вязынская 10 <span>УНП
+                                        192402920</span></span>
+                            </div>
+                            <div class="footer-row__item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M18.3333 14.0999V16.5999C18.3343 16.832 18.2867 17.0617 18.1937 17.2744C18.1008 17.487 17.9644 17.6779 17.7934 17.8348C17.6224 17.9917 17.4205 18.1112 17.2006 18.1855C16.9808 18.2599 16.7478 18.2875 16.5167 18.2666C13.9523 17.988 11.4892 17.1117 9.32498 15.7083C7.31151 14.4288 5.60443 12.7217 4.32499 10.7083C2.91663 8.53426 2.04019 6.05908 1.76665 3.48325C1.74583 3.25281 1.77321 3.02055 1.84707 2.80127C1.92092 2.58199 2.03963 2.38049 2.19562 2.2096C2.35162 2.03871 2.54149 1.90218 2.75314 1.80869C2.9648 1.7152 3.1936 1.6668 3.42499 1.66658H5.92499C6.32941 1.6626 6.72148 1.80582 7.02812 2.06953C7.33476 2.33324 7.53505 2.69946 7.59165 3.09992C7.69717 3.89997 7.89286 4.68552 8.17499 5.44158C8.2871 5.73985 8.31137 6.06401 8.24491 6.37565C8.17844 6.68729 8.02404 6.97334 7.79998 7.19992L6.74165 8.25825C7.92795 10.3445 9.65536 12.072 11.7417 13.2583L12.8 12.1999C13.0266 11.9759 13.3126 11.8215 13.6243 11.755C13.9359 11.6885 14.26 11.7128 14.5583 11.8249C15.3144 12.107 16.0999 12.3027 16.9 12.4083C17.3048 12.4654 17.6745 12.6693 17.9388 12.9812C18.203 13.2931 18.3435 13.6912 18.3333 14.0999Z"
+                                            stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"/>
+                                </svg>
+
+                                <div class="footer-row__links">
+                                    <a href="tel:+375173184858">+375 17 318 48 58</a>
+                                    <a href="tel:+375296650858">+375 29 665 08 58 (моб.)</a>
+                                </div>
+                            </div>
+                            <ul class="menu-social">
+                                <li><a href="#">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M11 0.600098C5.25626 0.600098 0.599976 5.25638 0.599976 11.0001C0.599976 15.8773 3.95793 19.9699 8.48775 21.0939V14.1783H6.34327V11.0001H8.48775V9.63062C8.48775 6.09088 10.0898 4.45018 13.565 4.45018C14.224 4.45018 15.3609 4.57955 15.826 4.70851V7.58931C15.5806 7.56352 15.1542 7.55063 14.6246 7.55063C12.9194 7.55063 12.2605 8.19667 12.2605 9.87606V11.0001H15.6575L15.0739 14.1783H12.2605V21.324C17.4101 20.702 21.4004 16.3174 21.4004 11.0001C21.4 5.25638 16.7437 0.600098 11 0.600098Z"
+                                                fill="white" fill-opacity="0.7"/>
+                                    </svg>
+                                </a></li>
+                                <li><a href="#">
+                                    <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M9.99999 6.3266L18.307 0.990098C17.973 0.739597 17.5675 0.602893 17.15 0.600098H2.84999C2.43252 0.602893 2.02697 0.739597 1.69299 0.990098L9.99999 6.3266Z"
+                                                fill="white" fill-opacity="0.7"/>
+                                        <path
+                                                d="M10.351 8.36295L10.2405 8.41418H10.1885C10.1287 8.44052 10.0651 8.45779 10 8.46541C9.94607 8.4721 9.89148 8.4721 9.83752 8.46541H9.78552L9.67502 8.41418L0.965024 2.86865C0.92341 3.02332 0.901574 3.18251 0.900024 3.34252V12.3076C0.900024 12.8171 1.10547 13.3057 1.47117 13.666C1.83686 14.0263 2.33285 14.2287 2.85002 14.2287H17.15C17.6672 14.2287 18.1632 14.0263 18.5289 13.666C18.8946 13.3057 19.1 12.8171 19.1 12.3076V3.34252C19.0985 3.18251 19.0766 3.02332 19.035 2.86865L10.351 8.36295Z"
+                                                fill="white" fill-opacity="0.7"/>
+                                    </svg>
+                                </a></li>
+                                <li><a href="#">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M8.99956 6.07105C7.37792 6.07105 6.07055 7.39105 6.07055 9.0002C6.07055 10.6093 7.39049 11.9293 8.99956 11.9293C10.6086 11.9293 11.9286 10.6093 11.9286 9.0002C11.9286 7.39105 10.6086 6.07105 8.99956 6.07105ZM17.7992 9.0002C17.7992 7.78077 17.7992 6.58648 17.7363 5.36705C17.6735 3.95905 17.3466 2.70191 16.3158 1.68362C15.285 0.652767 14.0405 0.32591 12.6325 0.263052C11.4132 0.200195 10.2189 0.200195 8.99956 0.200195C7.78018 0.200195 6.58595 0.200195 5.36658 0.263052C3.95864 0.32591 2.70155 0.652767 1.68331 1.68362C0.652503 2.71448 0.32566 3.95905 0.262805 5.36705C0.199951 6.58648 0.199951 7.78077 0.199951 9.0002C0.199951 10.2196 0.199951 11.4139 0.262805 12.6333C0.32566 14.0413 0.652503 15.2985 1.68331 16.3168C2.71412 17.3476 3.95864 17.6745 5.36658 17.7373C6.58595 17.8002 7.78018 17.8002 8.99956 17.8002C10.2189 17.8002 11.4132 17.8002 12.6325 17.7373C14.0405 17.6745 15.2976 17.3476 16.3158 16.3168C17.3466 15.2859 17.6735 14.0413 17.7363 12.6333C17.8117 11.4265 17.7992 10.2196 17.7992 9.0002ZM8.99956 13.5133C6.49796 13.5133 4.48662 11.5019 4.48662 9.0002C4.48662 6.49848 6.49796 4.48705 8.99956 4.48705C11.5012 4.48705 13.5125 6.49848 13.5125 9.0002C13.5125 11.5019 11.5012 13.5133 8.99956 13.5133ZM13.7011 5.35448C13.1228 5.35448 12.6451 4.88934 12.6451 4.29848C12.6451 3.70762 13.1102 3.24248 13.7011 3.24248C14.2919 3.24248 14.757 3.70762 14.757 4.29848C14.7602 4.43618 14.7351 4.57307 14.6832 4.70066C14.6313 4.82825 14.5537 4.94381 14.4553 5.04019C14.3589 5.1386 14.2434 5.21615 14.1158 5.26805C13.9882 5.31995 13.8513 5.34509 13.7136 5.34191L13.7011 5.35448Z"
+                                                fill="white" fill-opacity="0.7"/>
+                                    </svg>
+                                </a></li>
+                                <li><a href="#">
+                                    <svg width="22" height="16" viewBox="0 0 22 16" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M21.1928 3.84016C21.1928 3.84016 20.9897 2.40609 20.364 1.77641C19.5718 0.947656 18.6862 0.943594 18.28 0.894844C15.3712 0.683594 11.004 0.683594 11.004 0.683594H10.9959C10.9959 0.683594 6.62873 0.683594 3.71998 0.894844C3.31373 0.943594 2.4281 0.947656 1.63591 1.77641C1.01029 2.40609 0.811226 3.84016 0.811226 3.84016C0.811226 3.84016 0.599976 5.52609 0.599976 7.20797V8.78422C0.599976 10.4661 0.807163 12.152 0.807163 12.152C0.807163 12.152 1.01029 13.5861 1.63185 14.2158C2.42404 15.0445 3.46404 15.0161 3.92716 15.1055C5.59279 15.2639 11 15.3127 11 15.3127C11 15.3127 15.3712 15.3045 18.28 15.0973C18.6862 15.0486 19.5718 15.0445 20.364 14.2158C20.9897 13.5861 21.1928 12.152 21.1928 12.152C21.1928 12.152 21.4 10.4702 21.4 8.78422V7.20797C21.4 5.52609 21.1928 3.84016 21.1928 3.84016ZM8.85091 10.6977V4.85172L14.4693 7.78484L8.85091 10.6977Z"
+                                                fill="white" fill-opacity="0.7"/>
+                                    </svg>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>© 2025 АльфаМилк. Все права защищены.</span>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+
+</div>
+
+<script src="{% static 'myblog/js/main.min.js' %}"></script>
+
+</body>
+</html>

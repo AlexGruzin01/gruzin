@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<section class="reviews">
+            <div class="container">
+                <div class="header-title">
+                    <h2 class="header-title__title main-title _anim-no-hide _anim-items">{{title}}!</h2>
+                    <div class="header-title__arrows main-arrows">
+                        <div class="header-title__arr main-arr  reviev-prev">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_135_246)">
+                                    <path d="M1.74976 9.99966H18.2489" stroke="#5E5E5E" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M9.99934 18.2492L18.2489 9.99966L9.99934 1.75008" stroke="#5E5E5E"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_135_246">
+                                        <rect width="20" height="20" fill="white" transform="matrix(1 0 0 -1 0 20)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <div class="header-title__arr main-arr  reviev-next">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_135_246)">
+                                    <path d="M1.74976 9.99966H18.2489" stroke="#5E5E5E" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M9.99934 18.2492L18.2489 9.99966L9.99934 1.75008" stroke="#5E5E5E"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_135_246">
+                                        <rect width="20" height="20" fill="white" transform="matrix(1 0 0 -1 0 20)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-slider swiper">
+                    <div class="swiper-wrapper">
+                        {% for review in reviews %}
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-reviev">
+                                <div class="swiper-slide-reviev__header">
+                                    <div class="swiper-slide-reviev__img swiper-slide-reviev__img-ibg">
+                                        <img src="./images/about/01.jpg" alt="">
+                                    </div>
+                                    <h2 class="swiper-slide-reviev__name">{{review.reviewer}} <span>ОАО “Савушкин
+                                            продукт”</span></h2>
+                                </div>
+                                <div class="swiper-slide-reviev__content">
+                                    <p>Сотрудничество с компанией 'АльфаМилк' оставило только положительные впечатления.
+                                        Мы приобрели у них оборудование для переработки молока, и оно полностью
+                                        оправдало наши ожидания. Качество сборки на высоком уровне, а производительность
+                                        значительно увеличилась. Плюс, команда 'Альфамилк' оказала отличную поддержку на
+                                        всех этапах — от выбора оборудования до его установки и наладки. Рекомендуем!"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+{% endblock %}

@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="breadcrambs">
+        <div class="container">
+            <div class="breadcrambs-list">
+                <ul class="breadcrambs-items">
+                    <li class="breadcrambs-link"><a href="#">Главная </a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                    <li class="breadcrambs-link"><a href="#">Новости</a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                    <li class="breadcrambs-link"><a href="#">Пример новости</a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <main class="single-new">
+        <div class="container">
+            <div class="single-new-header">
+                <h1 class="single-new-header__title">IX Международный форум «Беларусь молочная»</h1>
+                <div class="single-new-header__body">
+                    <div class="single-new-header__data">Дата публикации:<span>{{ new.created|date:"d.m.Y" }}</span>
+                    </div>
+                    <div class="single-new-header__social">
+                        <span>Поделиться</span>
+                        <ul class="menu-social">
+                            <li><a href="#">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M11 0.600098C5.25626 0.600098 0.599976 5.25638 0.599976 11.0001C0.599976 15.8773 3.95793 19.9699 8.48775 21.0939V14.1783H6.34327V11.0001H8.48775V9.63062C8.48775 6.09088 10.0898 4.45018 13.565 4.45018C14.224 4.45018 15.3609 4.57955 15.826 4.70851V7.58931C15.5806 7.56352 15.1542 7.55063 14.6246 7.55063C12.9194 7.55063 12.2605 8.19667 12.2605 9.87606V11.0001H15.6575L15.0739 14.1783H12.2605V21.324C17.4101 20.702 21.4004 16.3174 21.4004 11.0001C21.4 5.25638 16.7437 0.600098 11 0.600098Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M9.99999 6.3266L18.307 0.990098C17.973 0.739597 17.5675 0.602893 17.15 0.600098H2.84999C2.43252 0.602893 2.02697 0.739597 1.69299 0.990098L9.99999 6.3266Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                    <path
+                                            d="M10.351 8.36295L10.2405 8.41418H10.1885C10.1287 8.44052 10.0651 8.45779 10 8.46541C9.94607 8.4721 9.89148 8.4721 9.83752 8.46541H9.78552L9.67502 8.41418L0.965024 2.86865C0.92341 3.02332 0.901574 3.18251 0.900024 3.34252V12.3076C0.900024 12.8171 1.10547 13.3057 1.47117 13.666C1.83686 14.0263 2.33285 14.2287 2.85002 14.2287H17.15C17.6672 14.2287 18.1632 14.0263 18.5289 13.666C18.8946 13.3057 19.1 12.8171 19.1 12.3076V3.34252C19.0985 3.18251 19.0766 3.02332 19.035 2.86865L10.351 8.36295Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M8.99956 6.07105C7.37792 6.07105 6.07055 7.39105 6.07055 9.0002C6.07055 10.6093 7.39049 11.9293 8.99956 11.9293C10.6086 11.9293 11.9286 10.6093 11.9286 9.0002C11.9286 7.39105 10.6086 6.07105 8.99956 6.07105ZM17.7992 9.0002C17.7992 7.78077 17.7992 6.58648 17.7363 5.36705C17.6735 3.95905 17.3466 2.70191 16.3158 1.68362C15.285 0.652767 14.0405 0.32591 12.6325 0.263052C11.4132 0.200195 10.2189 0.200195 8.99956 0.200195C7.78018 0.200195 6.58595 0.200195 5.36658 0.263052C3.95864 0.32591 2.70155 0.652767 1.68331 1.68362C0.652503 2.71448 0.32566 3.95905 0.262805 5.36705C0.199951 6.58648 0.199951 7.78077 0.199951 9.0002C0.199951 10.2196 0.199951 11.4139 0.262805 12.6333C0.32566 14.0413 0.652503 15.2985 1.68331 16.3168C2.71412 17.3476 3.95864 17.6745 5.36658 17.7373C6.58595 17.8002 7.78018 17.8002 8.99956 17.8002C10.2189 17.8002 11.4132 17.8002 12.6325 17.7373C14.0405 17.6745 15.2976 17.3476 16.3158 16.3168C17.3466 15.2859 17.6735 14.0413 17.7363 12.6333C17.8117 11.4265 17.7992 10.2196 17.7992 9.0002ZM8.99956 13.5133C6.49796 13.5133 4.48662 11.5019 4.48662 9.0002C4.48662 6.49848 6.49796 4.48705 8.99956 4.48705C11.5012 4.48705 13.5125 6.49848 13.5125 9.0002C13.5125 11.5019 11.5012 13.5133 8.99956 13.5133ZM13.7011 5.35448C13.1228 5.35448 12.6451 4.88934 12.6451 4.29848C12.6451 3.70762 13.1102 3.24248 13.7011 3.24248C14.2919 3.24248 14.757 3.70762 14.757 4.29848C14.7602 4.43618 14.7351 4.57307 14.6832 4.70066C14.6313 4.82825 14.5537 4.94381 14.4553 5.04019C14.3589 5.1386 14.2434 5.21615 14.1158 5.26805C13.9882 5.31995 13.8513 5.34509 13.7136 5.34191L13.7011 5.35448Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="22" height="16" viewBox="0 0 22 16" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M21.1928 3.84016C21.1928 3.84016 20.9897 2.40609 20.364 1.77641C19.5718 0.947656 18.6862 0.943594 18.28 0.894844C15.3712 0.683594 11.004 0.683594 11.004 0.683594H10.9959C10.9959 0.683594 6.62873 0.683594 3.71998 0.894844C3.31373 0.943594 2.4281 0.947656 1.63591 1.77641C1.01029 2.40609 0.811226 3.84016 0.811226 3.84016C0.811226 3.84016 0.599976 5.52609 0.599976 7.20797V8.78422C0.599976 10.4661 0.807163 12.152 0.807163 12.152C0.807163 12.152 1.01029 13.5861 1.63185 14.2158C2.42404 15.0445 3.46404 15.0161 3.92716 15.1055C5.59279 15.2639 11 15.3127 11 15.3127C11 15.3127 15.3712 15.3045 18.28 15.0973C18.6862 15.0486 19.5718 15.0445 20.364 14.2158C20.9897 13.5861 21.1928 12.152 21.1928 12.152C21.1928 12.152 21.4 10.4702 21.4 8.78422V7.20797C21.4 5.52609 21.1928 3.84016 21.1928 3.84016ZM8.85091 10.6977V4.85172L14.4693 7.78484L8.85091 10.6977Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="single-new-img">
+                {% if new.top_ing %}
+                    <img src="{{ new.top_img.url }}" alt="">
+                {% else %}
+                    <img src="{% static 'myblog/images/noimg.png' %}" alt="">
+                {% endif %}
+            </div>
+            <div class="single-new-content">
+                <div class="single-new-content__wrapper">
+                    <div class="single-new-content__item">
+                        <h2 class="single-new-content__title">Кратко о порядке реализации проекта</h2>
+                        <p class="single-new-content__subtitle">Если Заказчик имеет ресурсы и хочет построить
+                            или реконструировать завод или цех по переработке молока и выпуску продукции, он должен:
+                        </p>
+                        <ul>
+                            <li>Решить задачи маркетинга и получения разрешительной документации.
+                            </li>
+                            <li>Определить производственную программу: ассортимент и объёмы выпускаемой продукции
+                                с учётом вида и объёма упаковки.
+                            </li>
+                            <li>Иметь документацию на право собственности на землю и разрешение на подключение
+                                к наружным сетям: электричество, газ, вода, пар и канализация.
+                            </li>
+                            <li>Разработать на основании производственной программы Техническое задание
+                                на разработку технологической части проекта.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-new-content__item">
+                        <h2 class="single-new-content__title">Кратко о порядке реализации проекта</h2>
+                        <p class="single-new-content__subtitle">Если Заказчик имеет ресурсы и хочет построить
+                            или реконструировать завод или цех по переработке молока и выпуску продукции, он должен:
+                        </p>
+                        <ul>
+                            <li>Решить задачи маркетинга и получения разрешительной документации.
+                            </li>
+                            <li>Определить производственную программу: ассортимент и объёмы выпускаемой продукции
+                                с учётом вида и объёма упаковки.
+                            </li>
+                            <li>Иметь документацию на право собственности на землю и разрешение на подключение
+                                к наружным сетям: электричество, газ, вода, пар и канализация.
+                            </li>
+                            <li>Разработать на основании производственной программы Техническое задание
+                                на разработку технологической части проекта.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="single-new-content__img">
+                    {% if new.top_ing %}
+                        <img src="{{ new.top_img.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'myblog/images/noimg.png' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="single-new-content__wrapper">
+                    <div class="single-new-content__item">
+                        <h2 class="single-new-content__title">Кратко о порядке реализации проекта</h2>
+                        <p class="single-new-content__subtitle">Если Заказчик имеет ресурсы и хочет построить
+                            или реконструировать завод или цех по переработке молока и выпуску продукции, он должен:
+                        </p>
+                        <ul>
+                            <li>Решить задачи маркетинга и получения разрешительной документации.
+                            </li>
+                            <li>Определить производственную программу: ассортимент и объёмы выпускаемой продукции
+                                с учётом вида и объёма упаковки.
+                            </li>
+                            <li>Иметь документацию на право собственности на землю и разрешение на подключение
+                                к наружным сетям: электричество, газ, вода, пар и канализация.
+                            </li>
+                            <li>Разработать на основании производственной программы Техническое задание
+                                на разработку технологической части проекта.
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="other-news">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title">Другие новости</h2>
+                <a class="header-title__btn main-btn" href="{% url 'news' %}">Читать все</a>
+            </div>
+            <div class="block-news-body news-body">
+                {% for new in other_news %}
+                    <div class="block-news-item news-item _anim-items _anim-no-hide">
+                        <div class="block-news-data news-data"><span>{{ new.created|date:'d.m.Y' }}</span></div>
+                        <div class="block-news-content news-content">
+                            <h3 class="block-news-title news-title">{{ new }}</h3>
+                            <p class="block-news-subtitle news-subtitle">{{ new.description }}
+                            </p>
+                            <a href="#" class="block-news-btn news-btn"><span>Читать больше</span>
+                                <svg width="14"
+                                     height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_128_248)">
+                                        <path d="M1.16602 1.1665L12.8327 12.8332" stroke="#E92935" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.8327 1.1665V12.8332H1.16602" stroke="#E92935" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_128_248">
+                                            <rect width="14" height="14" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="block-news-img news-img news-img-ibg">
+                            {% if new.image %}
+                                <img src="{{ new.image.url }}" alt="">
+                            {% else %}
+                                <img src="{% static 'myblog/images/noimg.png' %}" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

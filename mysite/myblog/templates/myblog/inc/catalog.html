@@ -1,0 +1,91 @@
+{% load static %}
+<section class="catalog">
+        <div class="container">
+            <ul class="catalog-tabs">
+                <li data-id="0" class="catalog-tabs__tab _active">Оборудование</li>
+                <li data-id="1" class="catalog-tabs__tab">Услуги</li>
+            </ul>
+            <div class="catalog-tab__body">
+                <div data-id="0" class="catalog-tab__content">
+                    <div class="catalog-tab__equipment catalog-body">
+                        {% for post in equipment_qs %}
+                            <div class="catalog-tab__column catalog-body__column _anim-no-hide _anim-items">
+                                <a href="{{ post.get_absolute_url }}" class="catalog-tab__item catalog-body__item">
+                                    <div class="catalog-tab__name catalog-body__name">
+                                        <h2 class="catalog-tab__title catalog-body__title">{{ post }}</h2>
+                                        <p class="catalog-tab__subtitle catalog-body__subtitle">{{ post.description }}</p>
+                                        <span class="catalog-tab__btn catalog-body__btn"><svg width="14" height="14"
+                                                                                              viewBox="0 0 14 14"
+                                                                                              fill="none"
+                                                                                              xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_104_231)">
+                                                    <path d="M1.16602 1.16675L12.8327 12.8334" stroke="#363636"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                    <path d="M12.8327 1.16675V12.8334H1.16602" stroke="#363636"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_104_231">
+                                                        <rect width="14" height="14" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                        <div class="catalog-tab__img catalog-body__img catalog-body__img-ibg">
+                                            {% if post.image %}
+                                                <p><img src="{{ post.image.url }}" alt=""></p>
+                                            {% else %}
+                                                <p><img src="/media/noimg.png" alt=""></p>
+                                            {% endif %}
+{#                                            <img src="{% static 'myblog/images/equipments/01.jpg' %}" alt="">#}
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div data-id="1" class="catalog-tab__content">
+                    <div class="catalog-services-body">
+                        {% for post in service_qs %}
+                        <div class="catalog-services-body__column _anim-no-hide _anim-items">
+                            <a href="#" class="catalog-services-body__item">
+                                <div class="catalog-services-body__wrapp catalog-services-body__wrapp-ibg">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="">
+                                    {% else %}
+                                    <img src="{% static 'myblog/images/services/01.jpg' %}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="catalog-services-body__content">
+                                    <h2 class="catalog-services-body__title">{{post}}</h2>
+                                    <div class="catalog-services-body__btn">
+                                        <svg width="14" height="14"
+                                             viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_192_1097)">
+                                                <path d="M1.16602 1.16675L12.8327 12.8334" stroke="white"
+                                                      stroke-width="2" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M12.8327 1.16675V12.8334H1.16602" stroke="white"
+                                                      stroke-width="2" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_192_1097">
+                                                    <rect width="14" height="14" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

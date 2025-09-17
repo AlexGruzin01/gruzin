@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load alfa_tags %} <!-- Загружаем наши теги -->
+{% get_work_status as work_status %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <h1 class="success"></h1>{{ message }}
+        {% endfor %}
+    {% endif %}
+
+    <div class="breadcrambs">
+        <div class="container">
+            <div class="breadcrambs-list">
+                <ul class="breadcrambs-items">
+                    <li class="breadcrambs-link"><a href="#">Главная </a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                    <li class="breadcrambs-link"><a href="#">Контакты</a>
+                        <svg width="13" height="13"
+                             viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                  stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="contacts">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">Контактные данные</h2>
+            </div>
+            <div class="contacts-body">
+                <div class="contacts-body-img">
+                    <div class="contacts-body__img contacts-body__img-ibg">
+                        <img src="{% static 'myblog/images/contacts/bg-contact.webp' %}" alt="">
+                    </div>
+                </div>
+                <div class="contacts-info">
+                    <div class="contacts-info__body">
+                        <div class="contacts-info__about">
+                            <div class="contacts-info__column">
+                                <div class="contacts-info__item">
+                                    <div class="contacts-info__header">
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M25.6676 19.7398V23.2398C25.669 23.5647 25.6024 23.8863 25.4722 24.184C25.3421 24.4817 25.1512 24.749 24.9117 24.9686C24.6723 25.1883 24.3896 25.3555 24.0819 25.4596C23.7741 25.5637 23.4479 25.6024 23.1243 25.5731C19.5343 25.183 16.0858 23.9563 13.056 21.9915C10.2371 20.2002 7.84721 17.8103 6.05598 14.9915C4.08429 11.9479 2.85726 8.48261 2.47431 4.87645C2.44516 4.55383 2.4835 4.22867 2.5869 3.92168C2.69029 3.61469 2.85648 3.33259 3.07487 3.09335C3.29327 2.8541 3.55909 2.66295 3.8554 2.53206C4.15172 2.40118 4.47204 2.33343 4.79598 2.33312H8.29598C8.86217 2.32755 9.41107 2.52805 9.84037 2.89724C10.2697 3.26644 10.5501 3.77914 10.6293 4.33979C10.777 5.45986 11.051 6.55964 11.446 7.61812C11.6029 8.0357 11.6369 8.48952 11.5439 8.92581C11.4508 9.36211 11.2347 9.76258 10.921 10.0798L9.43931 11.5615C11.1001 14.4823 13.5185 16.9006 16.4393 18.5615L17.921 17.0798C18.2382 16.7661 18.6387 16.5499 19.075 16.4569C19.5112 16.3638 19.9651 16.3978 20.3826 16.5548C21.4411 16.9498 22.5409 17.2237 23.661 17.3715C24.2277 17.4514 24.7453 17.7369 25.1153 18.1735C25.4853 18.6102 25.6818 19.1676 25.6676 19.7398Z"
+                                                    stroke="#E92935" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>Телефоны</span>
+                                    </div>
+                                    <ul class="contacts-info__list">
+                                        <li><a href="#">+375 17 318 48 58</a></li>
+                                        <li><a href="#">{{ site_info.phone}} (моб.)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="contacts-info__column">
+                                <div class="contacts-info__item">
+                                    <div class="contacts-info__header">
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M13.9987 6.99967V13.9997L18.6654 16.333M25.6654 13.9997C25.6654 20.443 20.442 25.6663 13.9987 25.6663C7.55538 25.6663 2.33203 20.443 2.33203 13.9997C2.33203 7.55635 7.55538 2.33301 13.9987 2.33301C20.442 2.33301 25.6654 7.55635 25.6654 13.9997Z"
+                                                    stroke="#E92935" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                        </svg>
+
+                                        <span>Часы работы</span>
+                                    </div>
+                                    <ul class="contacts-info__list">
+                                        <li>Пн. - Пт. С 09:00 до 17:00 Сб. - Вс. <span class="{{ work_status.class }}">{{ work_status.status }} {{ work_status.now }}</span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="contacts-info__column">
+                                <div class="contacts-info__item">
+                                    <div class="contacts-info__header">
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M25.6654 8.16699L15.2004 14.817C14.8402 15.0427 14.4237 15.1623 13.9987 15.1623C13.5737 15.1623 13.1572 15.0427 12.797 14.817L2.33203 8.16699M4.66536 4.66699H23.332C24.6207 4.66699 25.6654 5.71166 25.6654 7.00033V21.0003C25.6654 22.289 24.6207 23.3337 23.332 23.3337H4.66536C3.3767 23.3337 2.33203 22.289 2.33203 21.0003V7.00033C2.33203 5.71166 3.3767 4.66699 4.66536 4.66699Z"
+                                                    stroke="#E92935" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                        </svg>
+
+                                        <span>Email</span>
+                                    </div>
+                                    <ul class="contacts-info__list">
+                                        <li><a href="#">{{ site_info.email }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="contacts-info__column">
+                                <div class="contacts-info__item">
+                                    <div class="contacts-info__header">
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M23.3346 11.6663C23.3346 17.4915 16.8725 23.5582 14.7025 25.4318C14.5003 25.5839 14.2542 25.666 14.0013 25.666C13.7484 25.666 13.5023 25.5839 13.3001 25.4318C11.1301 23.5582 4.66797 17.4915 4.66797 11.6663C4.66797 9.19099 5.6513 6.81702 7.40164 5.06668C9.15198 3.31634 11.5259 2.33301 14.0013 2.33301C16.4767 2.33301 18.8506 3.31634 20.601 5.06668C22.3513 6.81702 23.3346 9.19099 23.3346 11.6663Z"
+                                                    stroke="#E92935" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                            <path
+                                                    d="M14.0013 15.1663C15.9343 15.1663 17.5013 13.5993 17.5013 11.6663C17.5013 9.73334 15.9343 8.16634 14.0013 8.16634C12.0683 8.16634 10.5013 9.73334 10.5013 11.6663C10.5013 13.5993 12.0683 15.1663 14.0013 15.1663Z"
+                                                    stroke="#E92935" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                        </svg>
+
+
+                                        <span>Адрес</span>
+                                    </div>
+                                    <ul class="contacts-info__list">
+                                        <li>Республика Беларусь, 220124, г. Минск, ул. Вязынская 10</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contacts-info__decor"></div>
+                        <p class="contacts-info__allow">Подпишись и оставайся на связи!</p>
+                        <ul class="menu-social">
+                            <li><a href="#">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M11 0.600098C5.25626 0.600098 0.599976 5.25638 0.599976 11.0001C0.599976 15.8773 3.95793 19.9699 8.48775 21.0939V14.1783H6.34327V11.0001H8.48775V9.63062C8.48775 6.09088 10.0898 4.45018 13.565 4.45018C14.224 4.45018 15.3609 4.57955 15.826 4.70851V7.58931C15.5806 7.56352 15.1542 7.55063 14.6246 7.55063C12.9194 7.55063 12.2605 8.19667 12.2605 9.87606V11.0001H15.6575L15.0739 14.1783H12.2605V21.324C17.4101 20.702 21.4004 16.3174 21.4004 11.0001C21.4 5.25638 16.7437 0.600098 11 0.600098Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M9.99999 6.3266L18.307 0.990098C17.973 0.739597 17.5675 0.602893 17.15 0.600098H2.84999C2.43252 0.602893 2.02697 0.739597 1.69299 0.990098L9.99999 6.3266Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                    <path
+                                            d="M10.351 8.36295L10.2405 8.41418H10.1885C10.1287 8.44052 10.0651 8.45779 10 8.46541C9.94607 8.4721 9.89148 8.4721 9.83752 8.46541H9.78552L9.67502 8.41418L0.965024 2.86865C0.92341 3.02332 0.901574 3.18251 0.900024 3.34252V12.3076C0.900024 12.8171 1.10547 13.3057 1.47117 13.666C1.83686 14.0263 2.33285 14.2287 2.85002 14.2287H17.15C17.6672 14.2287 18.1632 14.0263 18.5289 13.666C18.8946 13.3057 19.1 12.8171 19.1 12.3076V3.34252C19.0985 3.18251 19.0766 3.02332 19.035 2.86865L10.351 8.36295Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M8.99956 6.07105C7.37792 6.07105 6.07055 7.39105 6.07055 9.0002C6.07055 10.6093 7.39049 11.9293 8.99956 11.9293C10.6086 11.9293 11.9286 10.6093 11.9286 9.0002C11.9286 7.39105 10.6086 6.07105 8.99956 6.07105ZM17.7992 9.0002C17.7992 7.78077 17.7992 6.58648 17.7363 5.36705C17.6735 3.95905 17.3466 2.70191 16.3158 1.68362C15.285 0.652767 14.0405 0.32591 12.6325 0.263052C11.4132 0.200195 10.2189 0.200195 8.99956 0.200195C7.78018 0.200195 6.58595 0.200195 5.36658 0.263052C3.95864 0.32591 2.70155 0.652767 1.68331 1.68362C0.652503 2.71448 0.32566 3.95905 0.262805 5.36705C0.199951 6.58648 0.199951 7.78077 0.199951 9.0002C0.199951 10.2196 0.199951 11.4139 0.262805 12.6333C0.32566 14.0413 0.652503 15.2985 1.68331 16.3168C2.71412 17.3476 3.95864 17.6745 5.36658 17.7373C6.58595 17.8002 7.78018 17.8002 8.99956 17.8002C10.2189 17.8002 11.4132 17.8002 12.6325 17.7373C14.0405 17.6745 15.2976 17.3476 16.3158 16.3168C17.3466 15.2859 17.6735 14.0413 17.7363 12.6333C17.8117 11.4265 17.7992 10.2196 17.7992 9.0002ZM8.99956 13.5133C6.49796 13.5133 4.48662 11.5019 4.48662 9.0002C4.48662 6.49848 6.49796 4.48705 8.99956 4.48705C11.5012 4.48705 13.5125 6.49848 13.5125 9.0002C13.5125 11.5019 11.5012 13.5133 8.99956 13.5133ZM13.7011 5.35448C13.1228 5.35448 12.6451 4.88934 12.6451 4.29848C12.6451 3.70762 13.1102 3.24248 13.7011 3.24248C14.2919 3.24248 14.757 3.70762 14.757 4.29848C14.7602 4.43618 14.7351 4.57307 14.6832 4.70066C14.6313 4.82825 14.5537 4.94381 14.4553 5.04019C14.3589 5.1386 14.2434 5.21615 14.1158 5.26805C13.9882 5.31995 13.8513 5.34509 13.7136 5.34191L13.7011 5.35448Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                            <li><a href="#">
+                                <svg width="22" height="16" viewBox="0 0 22 16" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M21.1928 3.84016C21.1928 3.84016 20.9897 2.40609 20.364 1.77641C19.5718 0.947656 18.6862 0.943594 18.28 0.894844C15.3712 0.683594 11.004 0.683594 11.004 0.683594H10.9959C10.9959 0.683594 6.62873 0.683594 3.71998 0.894844C3.31373 0.943594 2.4281 0.947656 1.63591 1.77641C1.01029 2.40609 0.811226 3.84016 0.811226 3.84016C0.811226 3.84016 0.599976 5.52609 0.599976 7.20797V8.78422C0.599976 10.4661 0.807163 12.152 0.807163 12.152C0.807163 12.152 1.01029 13.5861 1.63185 14.2158C2.42404 15.0445 3.46404 15.0161 3.92716 15.1055C5.59279 15.2639 11 15.3127 11 15.3127C11 15.3127 15.3712 15.3045 18.28 15.0973C18.6862 15.0486 19.5718 15.0445 20.364 14.2158C20.9897 13.5861 21.1928 12.152 21.1928 12.152C21.1928 12.152 21.4 10.4702 21.4 8.78422V7.20797C21.4 5.52609 21.1928 3.84016 21.1928 3.84016ZM8.85091 10.6977V4.85172L14.4693 7.78484L8.85091 10.6977Z"
+                                            fill="white" fill-opacity="0.7"/>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="map">
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">Где мы находимся?</h2>
+            </div>
+
+            <div class="map-ymap">
+                <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A79df1e90b5f7e34caa3151cebd212b6671c727a95cda6cd233e904b9555b1182&amp;source=constructor"
+                        width="100%" height="485" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="form-social">
+        <div class="container">
+            <div class="form-social-body">
+                <div class="form-social-body__column">
+                    <div class="form-social-body__item">
+                        <div class="header-title">
+                            <h2 class="header-title__title main-title _anim-no-hide _anim-items">Мы есть в социальных
+                                сетях</h2>
+                        </div>
+
+                        {% if messages %}
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <div style="position: relative; padding: 15px; margin: 10px 0; border-radius: 5px;
+                                            {% if message.tags == 'success' %}background: #d4edda; color: #155724;{% endif %}
+                                            {% if message.tags == 'error' %}background: #f8d7da; color: #721c24;{% endif %}
+                                            {% if message.tags == 'warning' %}background: #fff3cd; color: #856404;{% endif %}">
+                                        {{ message }}
+                                        <button style="position: absolute; top: 5px; right: 5px; background: none; border: none; font-size: 20px; cursor: pointer;"
+                                                onclick="this.parentElement.style.display='none'">×
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <form class="form-social-body__form" action="" method="post">
+                            {% csrf_token %}
+                            <label class="form-social-body__label"
+                                   for="{{ form.name.id_for_label }}">{{ form.name.label }}
+                                {{ form.name }}
+                            </label>
+                            <div class="form-error">{{ form.name.errors }}</div>
+                            <label class="form-social-body__label"
+                                   for="{{ form.email.id_for_label }}">{{ form.email.label }}
+                                {{ form.email }}
+                            </label>
+                            <div class="form-error">{{ form.email.errors }}</div>
+                            <label class="form-social-body__label"
+                                   for="{{ form.subject.id_for_label }}">{{ form.subject.label }}
+                                {{ form.subject }}
+                            </label>
+                            {{ form.content }}
+                            <button class="form-social-body__btn" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="form-social-body__column">
+                    <div class="form-social-body__item form-social-body__item-ibg">
+                        <img src="{% static 'myblog/images/contacts/form-img.webp' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+.status-open {
+    color: #28a745; /* Зеленый цвет для "Открыто" */
+    font-weight: bold;
+}
+
+.status-closed {
+    color: #dc3545; /* Красный цвет для "Закрыто" */
+    font-weight: bold;
+}
+.active{
+    color: #dc3545;
+}

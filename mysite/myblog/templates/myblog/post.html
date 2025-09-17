@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        {% autoescape off %}
+            <main class="main main-pages">
+                <div class="main-pages-image main-pages-image-single main-pages-image-ibg">
+                    {% if post.page_image %}
+                    <img src="{{ post.page_image.url }}" alt="Изображение">
+                    {% else %}
+                    no photo
+                    {% endif %}
+                    <div class="container container-pages">
+                        <div class="main-pages__content">
+                            <h1 class="main-pages__title">{{ post }}</h1>
+                            <p class="main-pages__subtitle">{{ post.description }}</p>
+                        </div>
+                    </div>
+                    <div class="main-pages-image-single-img main-pages-image-single-img-ibg">
+                        <img src="{% static 'myblog/images/services/decor-single.svg' %}" alt="">
+                    </div>
+                </div>
+            </main>
+            <div class="breadcrambs">
+                <div class="container">
+                    <div class="breadcrambs-list">
+                        <ul class="breadcrambs-items">
+                            <li class="breadcrambs-link"><a href="#">Главная </a>
+                                <svg width="13" height="13"
+                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4"
+                                          stroke-width="1.2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                          stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                            </li>
+                            <li class="breadcrambs-link"><a href="#">Услуги</a>
+                                <svg width="13" height="13"
+                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4"
+                                          stroke-width="1.2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                          stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                            </li>
+                            <li class="breadcrambs-link"><a href="#">{{ post }}</a>
+                                <svg width="13"
+                                     height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6.80371H11.6066" stroke="#343434" stroke-opacity="0.4"
+                                          stroke-width="1.2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.3033 1.50041L11.6066 6.80371L6.3033 12.107" stroke="#343434"
+                                          stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <section class="service-single-content">
+                <div class="container">
+                    <div class="service-single-content__body">
+                        <div class="service-single-content__container">
+                            <div class="service-single-content__wrapper">
+                                <div class="service-single-content__item">
+                                    <div class="service-single-content__img-first">
+                                        {% if post.top_img %}
+                                            <img src="{{ post.top_img.url }}" alt="">
+                                        {% else %}
+                                            нет фото
+                                        {% endif %}
+                                    </div>
+                                    <h3 class="service-single-content__title">{{ post.content }}</h3>
+                                </div>
+
+                            </div>
+                            <div class="service-single-content__img-second">
+                                {% if post.bottom_img %}
+                                    <img src="{{ post.bottom_img.url }}" alt="">
+                                {% else %}
+                                    нет фото
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="service-single-content__decor">
+                            <img src="./images/services/decor-services.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% include 'myblog/inc/intresting.html' %}
+            <section class="service-single-other">
+                <div class="container">
+                    <div class="header-title">
+                        <h2 class="header-title__title main-title _anim-no-hide _anim-items">Другие услуги</h2>
+                        <div class="header-title__arrows main-arrows">
+                            <div class="header-title__arr main-arr service-single-prev">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_135_246)">
+                                        <path d="M1.74976 9.99966H18.2489" stroke="#5E5E5E" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9.99934 18.2492L18.2489 9.99966L9.99934 1.75008" stroke="#5E5E5E"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_135_246">
+                                            <rect width="20" height="20" fill="white"
+                                                  transform="matrix(1 0 0 -1 0 20)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="header-title__arr main-arr service-single-next">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_135_246)">
+                                        <path d="M1.74976 9.99966H18.2489" stroke="#5E5E5E" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9.99934 18.2492L18.2489 9.99966L9.99934 1.75008" stroke="#5E5E5E"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_135_246">
+                                            <rect width="20" height="20" fill="white"
+                                                  transform="matrix(1 0 0 -1 0 20)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-single-other__body swiper">
+                        <div class="swiper-wrapper">
+                            {% for other_post in other_posts %}
+                            <div class="swiper-slide">
+                                <a href="{{post.get_absolute_url}}" class="service-single-other__img service-single-other__img-ibg">
+                                    <img src="./images/services/001.jpg" alt="">
+                                    <div class="catalog-services-body__content">
+                                        <h2 class="catalog-services-body__title">{{ other_post }}</h2>
+                                        <div class="catalog-services-body__btn">
+                                            <svg width="14" height="14"
+                                                 viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_192_1097)">
+                                                    <path d="M1.16602 1.16675L12.8327 12.8334" stroke="white"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round">
+                                                    </path>
+                                                    <path d="M12.8327 1.16675V12.8334H1.16602" stroke="white"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round">
+                                                    </path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_192_1097">
+                                                        <rect width="14" height="14" fill="white"></rect>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endautoescape %}
+{% endblock %}

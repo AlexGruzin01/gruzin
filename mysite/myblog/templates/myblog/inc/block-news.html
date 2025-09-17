@@ -1,0 +1,47 @@
+{% load static %}
+<section class="block-news">
+
+
+
+        <div class="container">
+            <div class="header-title">
+                <h2 class="header-title__title main-title _anim-no-hide _anim-items">Новости</h2>
+                <a class="header-title__btn main-btn" href="{% url 'news' %}">Читать все</a>
+            </div>
+            <div class="block-news-body news-body">
+                {% for new in news %}
+                <div class="block-news-item news-item _anim-no-hide _anim-items">
+                    <div class="block-news-data news-data"><span>{{ new.created|date:"d.m.Y"}}</span></div>
+                    <div class="block-news-content news-content">
+                        <h3 class="block-news-title news-title">{{ new }}</h3>
+                        <p class="block-news-subtitle news-subtitle">{{ new.description }}
+                        </p>
+                        <a href="{{ new.get_absolute_url }}" class="block-news-btn news-btn"><span>Читать больше</span>
+                            <svg width="14"
+                                 height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_128_248)">
+                                    <path d="M1.16602 1.1665L12.8327 12.8332" stroke="#E92935" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12.8327 1.1665V12.8332H1.16602" stroke="#E92935" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_128_248">
+                                        <rect width="14" height="14" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="block-news-img news-img news-img-ibg">
+                        {% if new.image %}
+                        <img src="{{ new.image.url }}" alt="">
+                        {% else %}
+                        no image
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>

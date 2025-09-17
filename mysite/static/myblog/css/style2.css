@@ -1,0 +1,49 @@
+body{
+    height: 1500px;
+}
+ul{
+    padding-left: 0;
+}
+
+.top_line-info{
+    background: #333;
+    color: #fff;
+}
+ul{
+    display: flex;
+    //justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+ul li{
+    padding: 0 10px;
+}
+ul li a{
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+}
+ul li a:hover{
+    color: #d64444;
+    background: #f0f0f1;
+}
+
+/**
+* Прилипающее меню
+ */
+.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    opacity: .9;
+}
+.shadow{
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.1);
+}
+
